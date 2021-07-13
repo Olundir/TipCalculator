@@ -86,9 +86,22 @@ span {
   font-weight: 700;
   font-size: 1.125rem;
 }
+.tipAmount {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "select select"
+    "amount5 amount10"
+    "amount15 amount25"
+    "amount50 custom";
+  gap: 1rem;
+  text-align: center;
+}
 
 .select {
   grid-area: select;
+  text-align: left;
 }
 .amount1 {
   grid-area: amount5;
@@ -106,31 +119,30 @@ span {
   grid-area: amount50;
 }
 .amount6 {
-  grid-area: amountCustom;
-}
-
-.tipAmount {
-  display: grid;
-  grid-template-columns: 1fr, 1fr;
-  grid-template-rows: auto;
-  grid-template-areas:
-    "select select"
-    "amount5 amount10"
-    "amount15 amount25"
-    "amount50 customAmount";
+  grid-area: custom;
 }
 
 .radioInput {
-  width: 0;
-  height: 0;
-  display: none;
+  width: 5;
+  height: 5;
+  display: inline;
 }
 
 .radioLabel {
   background-color: hsl(183, 100%, 15%);
   cursor: pointer;
+  color: hsl(189, 41%, 97%);
+  font-weight: 700;
+  display: block;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
 }
 
-.tipAmount div:nth-child(2n) {
-  background-color: rebeccapurple;
+.amountCustom {
+  background-color: hsl(189, 41%, 97%);
+  color: hsl(186, 14%, 43%);
+}
+
+.radioChecked {
+  background-color: hsl(172, 67%, 45%);
 }
