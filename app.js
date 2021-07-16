@@ -73,3 +73,5 @@ form.oninput = () => {
 
   change();
 };
+
+// if label is checked
