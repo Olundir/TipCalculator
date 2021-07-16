@@ -123,9 +123,9 @@ span {
 }
 
 .radioInput {
-  width: 5;
-  height: 5;
-  display: inline;
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 .radioLabel {
@@ -145,4 +145,9 @@ span {
 
 .radioChecked {
   background-color: hsl(172, 67%, 45%);
+}
+
+.attribution {
+  margin-top: 2rem;
+  font-size: 1rem;
 }

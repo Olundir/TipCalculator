@@ -14,20 +14,62 @@ const radioCustomLabel = document.querySelector(".amountCustom");
 const radio = [radio5, radio10, radio15, radio25, radio50, radioCustom];
 const radioLabels = [radio5Label, radio10Label, radio15Label, radio25Label, radio50Label, radioCustomLabel];
 
-// check if any checked, if yes return the index
-const ifCheckedElsewhere = () => {
-  for (const item of radio) {
-    if (item.checked) return false;
+const change = () => {
+  for (let i = 0; i < radio.length; i++) {
+    if (radio[i].checked) radioLabels[i].classList.add("radioChecked");
+    if (!radio[i].checked) radioLabels[i].classList.remove("radioChecked");
   }
-  return false;
 };
 
-// if checked compare index ?
-for (const item of radioLabels) {
-  item.addEventListener("click", () => {
-    if (!ifCheckedElsewhere) {
-      item.classList.add("radioChecked");
-      console.log("clicked");
-    }
-  });
-}
+const form = document.querySelector("form");
+
+const billAmount = document.querySelector("#billAmount");
+const noPeople = document.querySelector("#nop");
+
+let total = document.querySelector("#total");
+let tip = document.querySelector("#tipAmount");
+
+const reset = document.querySelector("button");
+
+reset.addEventListener("click", () => {
+  for (let i = 0; i < radio.length; i++) {
+    radioLabels[i].classList.remove("radioChecked");
+  }
+  total.innerText = "$0.00";
+  tip.innerText = "$0.00";
+});
+
+const resetTotals = () => {
+  if (!billAmount.value) {
+    total.innerText = "$0.00";
+    tip.innerText = "$0.00";
+  }
+};
+
+const ifChecked = () => {
+  for (const item of radio) {
+    if (item.checked) return item.value;
+  }
+};
+
+const totalSummary = () => {
+  let summary = (parseFloat(billAmount.value) + parseFloat((billAmount.value * ifChecked()) / 100)) / noPeople.value;
+
+  if (billAmount.value && ifChecked() && noPeople.value) total.innerText = summary.toFixed(2);
+  resetTotals();
+};
+
+const tipSummary = () => {
+  let tipSummary = parseFloat((billAmount.value * ifChecked()) / 100) / noPeople.value;
+
+  if (billAmount.value && ifChecked() && noPeople.value) tip.innerText = tipSummary.toFixed(2);
+  resetTotals();
+};
+
+form.oninput = () => {
+  totalSummary();
+
+  tipSummary();
+
+  change();
+};
