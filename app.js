@@ -33,12 +33,15 @@ const reset = document.querySelector("button");
 
 const customNumber = document.querySelector("#amountCustomNumber");
 
+const warning = document.querySelector("h3");
+
 reset.addEventListener("click", () => {
   for (let i = 0; i < radio.length; i++) {
     radioLabels[i].classList.remove("radioChecked");
   }
   total.innerText = "$0.00";
   tip.innerText = "$0.00";
+  warning.classList.add("warning");
 });
 
 const resetTotals = () => {
@@ -68,12 +71,17 @@ const tipSummary = () => {
 
 customNumber.addEventListener("click", () => {
   radioCustom.checked = true;
-
   formFire();
 });
 
+const ifCheckedForReset = () => {
+  for (const item of radio) if (item.checked) return true;
+};
+
 const formFire = (form.oninput = () => {
   if (radioCustom.checked) radioCustom.value = customNumber.value;
+  if (noPeople.value === "0") warning.classList.remove("warning");
+  else warning.classList.add("warning");
 
   totalSummary();
 

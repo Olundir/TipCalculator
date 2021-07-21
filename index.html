@@ -16,66 +16,74 @@
         TTER
       </h1>
       <form action="">
-        <div class="section amountWrapper">
-          <label for="billAmount" class="label amountLabel">Bill</label>
-          <input class="inputAmount" type="number" name="billAmount" id="billAmount" />
-          <img src="images/icon-dollar.svg" alt="dollarIcon" />
-        </div>
-        <div class="section tipAmount">
-          <h2 class="label select">Select Tip %</h2>
-          <div class="amount1 amount">
-            <input class="radioInput" type="radio" id="amount5" name="amount" value="5" />
-            <label class="radioLabel amount5" for="amount5">5%</label>
+        <div class="columnBox">
+          <div class="section amountWrapper">
+            <label for="billAmount" class="label amountLabel">Bill</label>
+            <input class="inputAmount" type="number" name="billAmount" id="billAmount" min="0" />
+            <img src="images/icon-dollar.svg" alt="dollarIcon" />
           </div>
-          <div class="amount2 amount">
-            <input class="radioInput" type="radio" id="amount10" name="amount" value="10" />
-            <label class="radioLabel amount10" for="amount10">10%</label>
-          </div>
-          <div class="amount3 amount">
-            <input class="radioInput" type="radio" id="amount15" name="amount" value="15" />
-            <label class="radioLabel amount15" for="amount15">15%</label>
-          </div>
-          <div class="amount4 amount">
-            <input class="radioInput" type="radio" id="amount25" name="amount" value="25" />
-            <label class="radioLabel amount25" for="amount25">25%</label>
-          </div>
-          <div class="amount5 amount">
-            <input class="radioInput" type="radio" id="amount50" name="amount" value="50" />
-            <label class="radioLabel amount50" for="amount50">50%</label>
-          </div>
-          <div class="amount6 amount">
-            <input class="radioInput" type="radio" id="amountCustom" name="amount" value="" />
-            <label class="radioLabel box amountCustom" for="amountCustom"></label>
-            <input type="number" name="amount" id="amountCustomNumber" class="box box-top" placeholder="Custom" />
-          </div>
-        </div>
-        <div class="section amountWrapper">
-          <label for="nop" class="label amountLabel"> Number of People </label>
-          <input class="inputAmount" type="number" name="nop" id="nop" />
-          <img src="images/icon-person.svg" alt="dollarIcon" />
-        </div>
-        <div class="section summaryWrapper">
-          <div class="summary">
-            <div class="label">
-              <span> Tip Amount</span> <br />
-              / person
+          <div class="section tipAmount">
+            <h2 class="label select">Select Tip %</h2>
+            <div class="amount1 amount">
+              <input class="radioInput" type="radio" id="amount5" name="amount" value="5" />
+              <label class="radioLabel amount5" for="amount5">5%</label>
             </div>
-            <h2 id="tipAmount">$0.00</h2>
-          </div>
-          <div class="summary">
-            <div class="label">
-              <span> Total </span> <br />
-              / person
+            <div class="amount2 amount">
+              <input class="radioInput" type="radio" id="amount10" name="amount" value="10" />
+              <label class="radioLabel amount10" for="amount10">10%</label>
             </div>
-            <h2 id="total">$0.00</h2>
+            <div class="amount3 amount">
+              <input class="radioInput" type="radio" id="amount15" name="amount" value="15" />
+              <label class="radioLabel amount15" for="amount15">15%</label>
+            </div>
+            <div class="amount4 amount">
+              <input class="radioInput" type="radio" id="amount25" name="amount" value="25" />
+              <label class="radioLabel amount25" for="amount25">25%</label>
+            </div>
+            <div class="amount5 amount">
+              <input class="radioInput" type="radio" id="amount50" name="amount" value="50" />
+              <label class="radioLabel amount50" for="amount50">50%</label>
+            </div>
+            <div class="amount6 amount">
+              <input class="radioInput" type="radio" id="amountCustom" name="amount" value="" min="0" />
+              <label class="radioLabel box amountCustom" for="amountCustom"></label>
+              <input type="number" name="amount" id="amountCustomNumber" class="box box-top" placeholder="Custom" min="0" />
+            </div>
           </div>
-          <button type="reset">RESET</button>
+          <div class="section amountWrapper">
+            <div class="insideWrap">
+              <label for="nop" class="label amountLabel"> Number of People </label>
+              <h3 class="warning">Can't be zero!</h3>
+            </div>
+            <input class="inputAmount" type="number" name="nop" id="nop" min="0" />
+            <img src="images/icon-person.svg" alt="dollarIcon" />
+          </div>
+        </div>
+        <div class="columnBox columnReset">
+          <div class="section summaryWrapper">
+            <div class="summary">
+              <div class="label">
+                <span> Tip Amount</span> <br />
+                / person
+              </div>
+              <h2 id="tipAmount">$0.00</h2>
+            </div>
+            <div class="summary">
+              <div class="label">
+                <span> Total </span> <br />
+                / person
+              </div>
+              <h2 id="total">$0.00</h2>
+            </div>
+            <button type="reset">RESET</button>
+          </div>
         </div>
       </form>
     </main>
 
     <div class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Your Name Here</a>.
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by
+      <a href="https://github.com/Olundir" target="_blank">Krzysztof Jeżak</a>.
     </div>
     <script src="app.js"></script>
   </body>

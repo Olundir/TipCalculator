@@ -8,6 +8,7 @@ body {
 }
 main {
   width: 100%;
+  max-width: 700px;
 }
 h1 {
   font-weight: 700;
@@ -191,4 +192,58 @@ span {
   outline: none;
   background-color: hsl(172, 67%, 45%);
   border-radius: 10px;
+}
+button:hover {
+  box-shadow: 0 5px 20px hsla(0, 0%, 0%, 0.507);
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+}
+
+.insideWrap {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+h3 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: hsl(32, 100%, 60%);
+}
+.warning {
+  visibility: hidden;
+}
+
+@media (min-width: 1300px) {
+  main {
+    max-width: 750px;
+  }
+  h1 {
+    padding: 5vh 0;
+  }
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0;
+  }
+  .tipAmount {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "select select select"
+      "amount5 amount10 amount15"
+      "amount25 amount50 custom";
+  }
+  .columnBox {
+    width: 45%;
+  }
+  .summary {
+    padding: 20px 0;
+  }
+  .tipAmount {
+    font-size: 1.35rem;
+  }
+  .box-top::placeholder {
+    font-size: 1.35rem;
+  }
 }
