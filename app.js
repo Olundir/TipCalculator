@@ -31,6 +31,8 @@ let tip = document.querySelector("#tipAmount");
 
 const reset = document.querySelector("button");
 
+const customNumber = document.querySelector("#amountCustomNumber");
+
 reset.addEventListener("click", () => {
   for (let i = 0; i < radio.length; i++) {
     radioLabels[i].classList.remove("radioChecked");
@@ -47,9 +49,7 @@ const resetTotals = () => {
 };
 
 const ifChecked = () => {
-  for (const item of radio) {
-    if (item.checked) return item.value;
-  }
+  for (const item of radio) if (item.checked) return item.value;
 };
 
 const totalSummary = () => {
@@ -66,12 +66,18 @@ const tipSummary = () => {
   resetTotals();
 };
 
-form.oninput = () => {
+customNumber.addEventListener("click", () => {
+  radioCustom.checked = true;
+
+  formFire();
+});
+
+const formFire = (form.oninput = () => {
+  if (radioCustom.checked) radioCustom.value = customNumber.value;
+
   totalSummary();
 
   tipSummary();
 
   change();
-};
-
-// if label is checked
+});
